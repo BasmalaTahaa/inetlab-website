@@ -1,0 +1,79 @@
+/* ======================================================================
+   INet Lab — Animations
+   ====================================================================== */
+
+@keyframes floaty{
+  0%,100%{ transform:translateY(0); }
+  50%{ transform:translateY(-10px); }
+}
+.float{ animation:floaty 5s ease-in-out infinite; }
+
+@keyframes gradientShift{
+  0%{ background-position:0% 50%; }
+  50%{ background-position:100% 50%; }
+  100%{ background-position:0% 50%; }
+}
+.gradient-anim{
+  background-size:200% 200%;
+  animation:gradientShift 8s ease infinite;
+}
+
+/* Card tilt (JS sets --rx/--ry) */
+.tilt{
+  transform: perspective(900px) rotateX(var(--rx,0)) rotateY(var(--ry,0));
+  transition: transform .15s ease-out;
+}
+
+/* Image hover zoom */
+.zoom-wrap{ overflow:hidden; border-radius:inherit; }
+.zoom-wrap img{ transition:transform .6s var(--ease,ease); }
+.zoom-wrap:hover img{ transform:scale(1.08); }
+
+/* Icon rotate on hover */
+.icon-rotate:hover .card-icon{ transform:rotate(12deg) scale(1.06); }
+.card-icon{ transition:transform .35s var(--ease,ease); }
+
+/* Typing effect cursor */
+.typing::after{
+  content:"|"; margin-left:2px; color:var(--cyan,#4FC3F7);
+  animation:blink 1s steps(1) infinite;
+}
+@keyframes blink{ 50%{ opacity:0; } }
+
+/* Glowing border */
+.glow-border{ position:relative; }
+.glow-border::before{
+  content:""; position:absolute; inset:-1px; border-radius:inherit;
+  padding:1px;
+  background:linear-gradient(120deg,var(--signal,#1E88E5),var(--cyan,#4FC3F7),transparent 70%);
+  -webkit-mask:linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite:xor; mask-composite:exclude;
+  opacity:0; transition:opacity .3s ease;
+}
+.glow-border:hover::before{ opacity:1; }
+
+/* Fade helpers (non-JS fallback) */
+.fade-up{ animation:fadeUp .8s var(--ease,ease) both; }
+@keyframes fadeUp{ from{ opacity:0; transform:translateY(24px);} to{ opacity:1; transform:translateY(0);} }
+
+.fade-in{ animation:fadeIn .8s ease both; }
+@keyframes fadeIn{ from{ opacity:0;} to{ opacity:1;} }
+
+/* Loading dots */
+.dot-loader span{
+  width:6px;height:6px;border-radius:50%;background:currentColor;display:inline-block;margin:0 2px;
+  animation:dotBounce 1.2s infinite ease-in-out both;
+}
+.dot-loader span:nth-child(2){ animation-delay:.15s; }
+.dot-loader span:nth-child(3){ animation-delay:.3s; }
+@keyframes dotBounce{ 0%,80%,100%{ transform:scale(.4); opacity:.4;} 40%{ transform:scale(1); opacity:1;} }
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce){
+  *, *::before, *::after{
+    animation-duration:.001ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.001ms !important;
+    scroll-behavior:auto !important;
+  }
+}

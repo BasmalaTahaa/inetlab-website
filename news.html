@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>News — INet Lab</title>
+<meta name="description" content="Announcements and updates from the Intelligent Computer Networks Research Group.">
+<link rel="icon" href="assets/images/inet-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/animations.css">
+<link rel="stylesheet" href="css/responsive.css">
+<style>
+  .news-timeline{ max-width:760px; margin:0 auto; position:relative; }
+  .news-timeline::before{ content:""; position:absolute; left:20px; top:8px; bottom:8px; width:2px; background:var(--line); }
+  .news-item{ position:relative; padding-left:56px; margin-bottom:40px; }
+  .news-item::before{ content:""; position:absolute; left:14px; top:4px; width:14px; height:14px; border-radius:50%; background:var(--signal); border:3px solid var(--paper); box-shadow:0 0 0 2px var(--signal); }
+  .news-date{ font-size:.78rem; letter-spacing:.06em; text-transform:uppercase; color:var(--text-soft); font-family:var(--font-display); }
+</style>
+</head>
+<body data-page="news">
+
+<div id="loading-screen"><div class="loader-mark"></div></div>
+<div id="app-header"></div>
+
+<section class="page-hero">
+  <canvas></canvas>
+  <div class="container page-hero-inner">
+    <div class="crumbs"><a href="index.html">Home</a> / <span>News</span></div>
+    <span class="eyebrow">Lab news</span>
+    <h1>Announcements, milestones, and updates from INet Lab.</h1>
+    <p>We'll post here as the research track progresses — kickoffs, submissions, and new members joining the group.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="news-timeline">
+
+      <div class="news-item" data-reveal>
+        <span class="news-date">June 2026</span>
+        <div class="card" style="margin-top:10px;">
+          <span class="tag">Research track</span>
+          <h3 style="margin-top:12px;">Digital Twin–Driven Safe Exploration proposal submitted</h3>
+          <p style="margin-top:8px;">Eng. Basmala Taha submitted a research track proposal comparing GNN, GAT, Graph Transformer, and Graph Mamba backbones for network digital twins — now the group's flagship active project.</p>
+          <a href="projects.html" class="btn btn-ghost btn-sm" style="margin-top:16px;">View the project →</a>
+        </div>
+      </div>
+
+      <div class="news-item" data-reveal style="transition-delay:.08s;">
+        <span class="news-date">January 2026</span>
+        <div class="card" style="margin-top:10px;">
+          <span class="tag">Lab launch</span>
+          <h3 style="margin-top:12px;">INet Lab site goes live</h3>
+          <p style="margin-top:8px;">The Intelligent Computer Networks Research Group launched its site, outlining its mission around IoT and IoV communication health, and introducing group leadership.</p>
+        </div>
+      </div>
+
+      <div class="empty-state" data-reveal style="margin-top:20px;margin-left:56px;">
+        <div class="card-icon" style="margin:0 auto 16px;">◇</div>
+        <p style="font-family:var(--font-display);color:var(--text);font-weight:600;margin-bottom:8px;">That's everything so far</p>
+        <p>New announcements will appear at the top of this timeline as they happen.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div id="app-footer"></div>
+
+<script src="js/components/layout.js"></script>
+<script src="js/animations.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

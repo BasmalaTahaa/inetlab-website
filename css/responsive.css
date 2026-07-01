@@ -1,0 +1,52 @@
+/* ======================================================================
+   INet Lab — Responsive
+   Breakpoints: 1440 / 1024 / 768 / 480 / 360
+   ====================================================================== */
+
+@media (max-width:1440px){
+  .container{ max-width:1160px; }
+}
+
+@media (max-width:1180px){
+  .grid-4{ grid-template-columns:repeat(2,1fr); }
+  .stats-row{ grid-template-columns:repeat(2,1fr); row-gap:34px; }
+  .footer-grid{ grid-template-columns:1.2fr 1fr 1fr; }
+}
+
+@media (max-width:1024px){
+  .grid-3{ grid-template-columns:repeat(2,1fr); }
+  .split{ grid-template-columns:1fr; gap:36px; }
+  .hero h1{ max-width:100%; }
+  .footer-grid{ grid-template-columns:1fr 1fr; }
+}
+
+@media (max-width:860px){
+  .nav-links{ display:none; }
+  .nav-burger{ display:flex; }
+  .hero-focus{ gap:24px; }
+}
+
+@media (max-width:768px){
+  .section{ padding:76px 0; }
+  .grid-2, .grid-3, .grid-4{ grid-template-columns:1fr; }
+  .stats-row{ grid-template-columns:repeat(2,1fr); }
+  .footer-grid{ grid-template-columns:1fr 1fr; gap:30px; }
+  .page-hero{ padding-top:calc(var(--nav-h) + 60px); }
+  #back-to-top{ right:16px; bottom:16px; }
+}
+
+@media (max-width:480px){
+  .container{ padding:0 18px; }
+  .hero-inner{ padding:40px 18px; }
+  .hero-cta{ flex-direction:column; align-items:flex-start; }
+  .hero-cta .btn{ width:100%; }
+  .stats-row{ grid-template-columns:1fr 1fr; gap:20px; }
+  .footer-grid{ grid-template-columns:1fr; gap:28px; }
+  .footer-bottom{ flex-direction:column; align-items:flex-start; }
+  .card{ padding:24px; }
+}
+
+@media (max-width:360px){
+  .hero h1{ font-size:1.9rem; }
+  .section-head h2{ font-size:1.6rem; }
+}

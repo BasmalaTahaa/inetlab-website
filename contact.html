@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — INet Lab</title>
+<meta name="description" content="Get in touch with the Intelligent Computer Networks Research Group — for collaboration, questions, or joining as a researcher.">
+<link rel="icon" href="assets/images/inet-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/animations.css">
+<link rel="stylesheet" href="css/responsive.css">
+<style>
+  .form-field{ margin-bottom:20px; }
+  .form-field label{ display:block; font-size:.85rem; font-weight:600; margin-bottom:8px; font-family:var(--font-display); }
+  .form-field input, .form-field textarea, .form-field select{
+    width:100%; padding:14px 16px; border-radius:12px; border:1px solid var(--line);
+    background:var(--white); color:var(--text); font-family:var(--font-body); font-size:.95rem;
+  }
+  .form-field input:focus, .form-field textarea:focus, .form-field select:focus{ outline:2px solid var(--signal); outline-offset:1px; }
+  .form-field textarea{ min-height:130px; resize:vertical; }
+  .map-placeholder{
+    height:320px; border-radius:var(--radius-md); overflow:hidden; position:relative;
+    background:var(--ink);
+  }
+  .map-placeholder .pin{ position:absolute; top:50%; left:50%; transform:translate(-50%,-120%); font-size:2rem; }
+  .map-placeholder .cap{ position:absolute; bottom:18px; left:18px; right:18px; color:#C4D2E8; font-size:.85rem; font-family:var(--font-display); }
+  .contact-row{ display:flex; gap:16px; align-items:flex-start; padding:18px 0; border-bottom:1px solid var(--line); }
+  .contact-row .card-icon{ margin-bottom:0; flex-shrink:0; width:44px; height:44px; }
+  .form-status{ margin-top:14px; font-size:.9rem; padding:12px 16px; border-radius:10px; display:none; }
+  .form-status[data-fs-active]{ display:block; }
+  .form-status--success{ background:rgba(30,158,91,.1); color:#1E9E5B; border:1px solid rgba(30,158,91,.25); }
+  .form-status--error{ background:rgba(220,60,60,.08); color:#C0392B; border:1px solid rgba(220,60,60,.22); }
+  .field-error{ display:block; margin-top:6px; font-size:.8rem; color:#C0392B; }
+  button[data-fs-submit-btn]:disabled{ opacity:.6; cursor:not-allowed; }
+</style>
+</head>
+<body data-page="contact">
+
+<div id="loading-screen"><div class="loader-mark"></div></div>
+<div id="app-header"></div>
+
+<section class="page-hero">
+  <canvas></canvas>
+  <div class="container page-hero-inner">
+    <div class="crumbs"><a href="index.html">Home</a> / <span>Contact</span></div>
+    <span class="eyebrow">Get in touch</span>
+    <h1>Let's explore the future of intelligent communication systems — together.</h1>
+    <p>Interested in our research, exploring collaboration, or thinking about joining as a researcher? We'd be happy to connect.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="split">
+      <div data-reveal="left">
+        <span class="eyebrow">Send a message</span>
+        <h2 style="font-size:clamp(1.6rem,2.6vw,2.1rem);margin-top:14px;">Tell us what you're working on.</h2>
+        <form id="contact-form" style="margin-top:28px;">
+          <div class="form-field">
+            <label for="cf-name">Name</label>
+            <input type="text" id="cf-name" name="name" required placeholder="Your full name" data-fs-field>
+            <span data-fs-error="name" class="field-error"></span>
+          </div>
+          <div class="form-field">
+            <label for="cf-email">Email</label>
+            <input type="email" id="cf-email" name="email" required placeholder="you@example.com" data-fs-field>
+            <span data-fs-error="email" class="field-error"></span>
+          </div>
+          <div class="form-field">
+            <label for="cf-reason">I'm reaching out about</label>
+            <select id="cf-reason" name="reason" data-fs-field>
+              <option>Research collaboration</option>
+              <option>Joining as a student / researcher</option>
+              <option>General question</option>
+              <option>Something else</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="cf-message">Message</label>
+            <textarea id="cf-message" name="message" required placeholder="Share your background, research interests, or question…" data-fs-field></textarea>
+            <span data-fs-error="message" class="field-error"></span>
+          </div>
+          <button type="submit" class="btn btn-primary" data-fs-submit-btn>Send message →</button>
+          <div data-fs-error class="form-status form-status--error"></div>
+          <div data-fs-success class="form-status form-status--success">Thanks — your message has been sent. We'll get back to you soon.</div>
+        </form>
+      </div>
+
+      <div data-reveal="right">
+        <span class="eyebrow">Reach us directly</span>
+        <div class="contact-row">
+          <div class="card-icon">✉</div>
+          <div>
+            <h3 style="font-size:1rem;">Dr. Bassem Mokhtar</h3>
+            <p style="color:var(--text-soft);font-size:.9rem;">Founder &amp; Head of Lab. Personally affiliated with the College of Information Technology, UAE University — INet Lab itself is hosted at Alexandria University, Egypt.</p>
+            <a href="mailto:bassem.mokhtar@uaeu.ac.ae" style="color:var(--signal);font-weight:600;">bassem.mokhtar@uaeu.ac.ae</a>
+          </div>
+        </div>
+        <div class="contact-row">
+          <div class="card-icon">◆</div>
+          <div>
+            <h3 style="font-size:1rem;">Eng. Basmala Taha</h3>
+            <p style="color:var(--text-soft);font-size:.9rem;">Research Assistant &amp; Lab Coordinator — for day-to-day questions and research track queries.</p>
+          </div>
+        </div>
+        <div class="contact-row">
+          <div class="card-icon">◈</div>
+          <div>
+            <h3 style="font-size:1rem;">For students &amp; researchers</h3>
+            <p style="color:var(--text-soft);font-size:.9rem;">Undergraduate researchers, M.Sc./Ph.D. candidates, and research assistants — opportunities depend on availability and funding.</p>
+          </div>
+        </div>
+        <div class="contact-row" style="border-bottom:none;">
+          <div class="card-icon">🌐</div>
+          <div>
+            <h3 style="font-size:1rem;">Elsewhere</h3>
+            <div class="footer-social" style="margin-top:10px;">
+              <a href="mailto:bassem.mokhtar@uaeu.ac.ae" aria-label="Email" style="border-color:var(--line);color:var(--text);">✉</a>
+              <a href="https://alexu.edu.eg" target="_blank" rel="noopener" aria-label="Alexandria University" style="border-color:var(--line);color:var(--text);">🌐</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="map-placeholder mt-lg">
+          <canvas style="position:absolute;inset:0;width:100%;height:100%;"></canvas>
+          <span class="pin">📍</span>
+          <span class="cap">Alexandria University, Egypt — map embed to be added</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="app-footer"></div>
+
+<script src="js/components/layout.js"></script>
+<script src="js/animations.js"></script>
+<script src="js/main.js"></script>
+<script>
+document.addEventListener('layout:ready', function(){
+  document.querySelectorAll('.map-placeholder canvas').forEach(c=>initNetworkCanvas(c,{ nodeCount:26, linkDist:110 }));
+});
+
+window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+formspree('initForm', { formElement: '#contact-form', formId: 'xojokbae' });
+</script>
+<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
+</script>
+</body>
+</html>

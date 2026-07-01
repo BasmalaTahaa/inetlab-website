@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>INet Lab — Intelligent Computer Networks Research Group</title>
+<meta name="description" content="INet Lab designs intelligent, reliable communication for IoT and IoV environments — from edge-deployable machine learning to network digital twins.">
+<link rel="icon" href="assets/images/inet-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/animations.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body data-page="home">
+
+<div id="loading-screen"><div class="loader-mark"></div></div>
+<div id="app-header"></div>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <canvas></canvas>
+  <div class="hero-inner">
+    <span class="hero-tag"><span class="dot"></span> INet Lab — Intelligent Computer Networks Research Group</span>
+    <h1 data-reveal>Networks that sense, reason, and <em>optimize themselves.</em></h1>
+    <p class="lead" data-reveal style="transition-delay:.1s">We build intelligent, reliable communication for IoT and IoV environments — combining lightweight machine learning, compact language models, and semantic reasoning to keep networks healthy at the edge.</p>
+    <div class="hero-cta" data-reveal style="transition-delay:.2s">
+      <a href="about.html" class="btn btn-primary">Learn about the lab →</a>
+      <a href="contact.html" class="btn btn-outline">Join the group</a>
+    </div>
+    <div class="hero-focus" data-reveal style="transition-delay:.3s">
+      <div><b data-count="4">0</b><span>Research focus areas</span></div>
+      <div><b data-count="3">0</b><span>Active research projects</span></div>
+      <div><b data-count="10">0</b><span>Publications</span></div>
+      <div><b>IoT · IoV</b><span>Core deployment domains</span></div>
+    </div>
+  </div>
+  <div class="scroll-cue"><span>Scroll</span><span class="stick"></span></div>
+</section>
+
+<!-- ================= ABOUT SNAPSHOT ================= -->
+<section class="section">
+  <div class="container">
+    <div class="split">
+      <div data-reveal="left">
+        <span class="eyebrow">Who we are</span>
+        <h2 style="font-size:clamp(1.8rem,3vw,2.5rem);margin-top:14px;">A research group built around one question: is this network healthy — and can it adapt?</h2>
+        <p style="margin-top:20px;color:var(--text-soft);line-height:1.75;font-size:1.02rem;">The Research Group has been established to foster the development of promising research ideas and deliver innovative, applicable research solutions. Our work centers on Internet of Things (IoT) and Internet of Vehicles (IoV) environments, with particular emphasis on assessing and maintaining the health and reliability of communication links across heterogeneous network infrastructures.</p>
+        <p style="margin-top:16px;color:var(--text-soft);line-height:1.75;font-size:1.02rem;">We address both centralized and decentralized system architectures — pursuing efficient, reliable, and intelligent communication delivery under dynamic, resource-constrained conditions.</p>
+        <a href="about.html" class="btn btn-ghost" style="margin-top:26px;">Read the full mission →</a>
+      </div>
+      <div data-reveal="right" class="graph-panel" style="height:320px;border-radius:var(--radius-lg);background:var(--ink);overflow:hidden;position:relative;">
+        <canvas style="position:absolute;inset:0;width:100%;height:100%;"></canvas>
+        <div style="position:absolute;inset:0;display:flex;align-items:flex-end;padding:26px;">
+          <p style="color:#C4D2E8;font-size:.85rem;font-family:var(--font-display);letter-spacing:.03em;">Live sketch: message passing across a network graph — the same principle behind our digital-twin research.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= RESEARCH FOCUS ================= -->
+<section class="section section--navy" id="research-areas">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Research focus</span>
+      <h2>Four threads, one goal: intelligent networks that hold up in the real world.</h2>
+      <p>Our interests span the full stack — from how a model reasons about a link, down to whether that model can run at the edge.</p>
+      <a href="about.html#research-directions" class="btn btn-outline" style="margin-top:24px;">See all research directions →</a>
+    </div>
+    <div class="grid grid-4">
+      <div class="card tilt icon-rotate glow-border" data-reveal style="background:var(--navy-soft);border-color:rgba(255,255,255,.08);">
+        <div class="card-icon">◈</div>
+        <h3 style="color:#fff;">IoT &amp; IoV Architectures</h3>
+        <p style="color:#B9C7DE;">Centralized and decentralized system designs for Internet of Things and Internet of Vehicles environments.</p>
+      </div>
+      <div class="card tilt icon-rotate glow-border" data-reveal style="transition-delay:.08s;background:var(--navy-soft);border-color:rgba(255,255,255,.08);">
+        <div class="card-icon">◆</div>
+        <h3 style="color:#fff;">ML for Computer Networks</h3>
+        <p style="color:#B9C7DE;">Applying machine learning to monitor, predict, and optimize communication link health.</p>
+      </div>
+      <div class="card tilt icon-rotate glow-border" data-reveal style="transition-delay:.16s;background:var(--navy-soft);border-color:rgba(255,255,255,.08);">
+        <div class="card-icon">✦</div>
+        <h3 style="color:#fff;">LLMs &amp; Semantic Reasoning</h3>
+        <p style="color:#B9C7DE;">Using large language models to generate human-like reasoning over network state and behavior.</p>
+      </div>
+      <div class="card tilt icon-rotate glow-border" data-reveal style="transition-delay:.24s;background:var(--navy-soft);border-color:rgba(255,255,255,.08);">
+        <div class="card-icon">◇</div>
+        <h3 style="color:#fff;">Edge-Constrained Deployment</h3>
+        <p style="color:#B9C7DE;">tinyML and tinyLLM techniques designed to run within real IoT hardware constraints.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FEATURED PROJECT ================= -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Featured research track</span>
+      <h2>Can architecture choice make network digital twins smarter?</h2>
+      <p>Our current flagship track puts four graph-learning architectures head-to-head inside TwinNet, the leading open-source network digital twin.</p>
+    </div>
+    <div class="card" data-reveal="zoom" style="display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:center;padding:44px;">
+      <div>
+        <span class="tag">Digital Twins</span> <span class="tag">Graph Learning</span> <span class="tag">IoT Scale</span>
+        <h3 style="font-size:1.5rem;margin-top:18px;">Digital Twin–Driven Safe Exploration for Autonomous IoT Network Optimization</h3>
+        <p style="margin-top:14px;">A comparative study benchmarking Message-Passing GNNs, Graph Attention Networks, Graph Transformers, and Graph Mamba (state-space models) as drop-in replacements for TwinNet's backbone — measuring accuracy, generalization, and real-time inference cost.</p>
+        <div style="display:flex;gap:28px;margin-top:26px;flex-wrap:wrap;">
+          <div><b style="font-family:var(--font-display);font-size:1.3rem;">4</b><div style="font-size:.8rem;color:var(--text-soft);">Architectures compared</div></div>
+          <div><b style="font-family:var(--font-display);font-size:1.3rem;">10 wks</b><div style="font-size:.8rem;color:var(--text-soft);">Timeline</div></div>
+          <div><b style="font-family:var(--font-display);font-size:1.3rem;">2027</b><div style="font-size:.8rem;color:var(--text-soft);">Target venues</div></div>
+        </div>
+        <a href="projects.html" class="btn btn-primary" style="margin-top:28px;">Explore the research track →</a>
+      </div>
+      <div style="background:var(--ink);border-radius:var(--radius-md);padding:28px;color:#fff;">
+        <p style="font-family:var(--font-display);font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--cyan);margin-bottom:16px;">Models under comparison</p>
+        <ul style="display:flex;flex-direction:column;gap:12px;">
+          <li style="display:flex;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.1);padding-bottom:10px;"><span>TwinNet‑GNN</span><span style="color:#9FB2CE;">Baseline</span></li>
+          <li style="display:flex;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.1);padding-bottom:10px;"><span>TwinNet‑GAT</span><span style="color:#9FB2CE;">Attention</span></li>
+          <li style="display:flex;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.1);padding-bottom:10px;"><span>TwinNet‑GT</span><span style="color:#9FB2CE;">Transformer</span></li>
+          <li style="display:flex;justify-content:space-between;"><span>TwinNet‑Mamba</span><span style="color:var(--pulse);">★ Key candidate</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="rail"><canvas></canvas></div>
+
+<!-- ================= TEAM PREVIEW ================= -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">The people</span>
+      <h2>A small group, deliberately built around mentorship.</h2>
+      <p>Faculty leadership, research assistants, and graduate researchers working across IoT intelligence and network digital twins.</p>
+    </div>
+    <div class="grid grid-3">
+      <div class="card tilt" data-reveal>
+        <div class="zoom-wrap" style="border-radius:14px;height:180px;margin-bottom:18px;">
+          <img src="assets/images/bassem-mokhtar.jpg" alt="Dr. Bassem Mokhtar" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <span class="tag">Founder &amp; Head</span>
+        <h3 style="margin-top:12px;">Dr. Bassem Mokhtar</h3>
+        <p>Assistant Professor of Computer Engineering, UAE University. Founded and heads INet Lab, hosted at Alexandria University, setting strategic research direction and leading funded projects.</p>
+      </div>
+      <div class="card tilt" data-reveal style="transition-delay:.08s;">
+        <div class="zoom-wrap" style="border-radius:14px;height:180px;margin-bottom:18px;">
+          <img src="assets/images/aya-ahmed.jpg" alt="Eng. Aya Ahmed" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <span class="tag">Research Assistant</span>
+        <h3 style="margin-top:12px;">Eng. Aya Ahmed</h3>
+        <p>American University in Cairo. Supports research design, methodology development, technical writing, and system architecture formulation.</p>
+      </div>
+      <div class="card tilt" data-reveal style="transition-delay:.16s;">
+        <div class="zoom-wrap" style="border-radius:14px;height:180px;margin-bottom:18px;">
+          <img src="assets/images/basmala-taha.jpg" alt="Eng. Basmala Taha" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <span class="tag">Lab Coordinator</span>
+        <h3 style="margin-top:12px;">Eng. Basmala Taha</h3>
+        <p>B.Sc. Computer Science, E‑JUST. Research Assistant &amp; Lab Coordinator, leading the Digital Twin research track.</p>
+      </div>
+    </div>
+    <div class="text-center" style="text-align:center;margin-top:44px;">
+      <a href="members.html" class="btn btn-ghost">Meet the full team →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="section section--dark">
+  <div class="container" style="text-align:center;">
+    <span class="eyebrow" style="justify-content:center;">Join us</span>
+    <h2 style="margin-top:16px;font-size:clamp(1.8rem,3.4vw,2.6rem);max-width:700px;margin-left:auto;margin-right:auto;">Motivated about IoT, IoV, or intelligent networking? We're always looking for curious researchers.</h2>
+    <p style="margin-top:18px;color:#B9C7DE;max-width:560px;margin-left:auto;margin-right:auto;">Opportunities may be open for undergraduate researchers, M.Sc./Ph.D. candidates, and research collaborators — depending on availability and funding.</p>
+    <div style="margin-top:32px;">
+      <a href="contact.html" class="btn btn-primary">Get in touch →</a>
+    </div>
+  </div>
+</section>
+
+<div id="app-footer"></div>
+
+<script src="js/components/layout.js"></script>
+<script src="js/animations.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

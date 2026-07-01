@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects — INet Lab</title>
+<meta name="description" content="Active and upcoming research projects from the Intelligent Computer Networks Research Group, including the Digital Twin-Driven Safe Exploration track.">
+<link rel="icon" href="assets/images/inet-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/animations.css">
+<link rel="stylesheet" href="css/responsive.css">
+<style>
+  .timeline{ position:relative; padding-left:34px; }
+  .timeline::before{ content:""; position:absolute; left:6px; top:6px; bottom:6px; width:2px; background:var(--line); }
+  .t-step{ position:relative; padding-bottom:34px; }
+  .t-step::before{ content:""; position:absolute; left:-34px; top:2px; width:14px; height:14px; border-radius:50%; background:var(--signal); border:3px solid var(--paper); box-shadow:0 0 0 2px var(--signal); }
+  .t-step h4{ font-family:var(--font-display); font-size:1rem; margin-bottom:4px; }
+  .t-step span.when{ font-size:.78rem; color:var(--text-soft); text-transform:uppercase; letter-spacing:.05em; }
+  .details{ overflow:hidden; max-height:0; transition:max-height .5s var(--ease); }
+  .details.open{ max-height:2400px; }
+  .expand-btn{ display:inline-flex; align-items:center; gap:8px; margin-top:22px; }
+  .expand-btn svg{ width:14px; transition:transform .3s ease; }
+  .expand-btn.open svg{ transform:rotate(180deg); }
+  .rq-table{ width:100%; border-collapse:collapse; margin-top:16px; }
+  .rq-table th, .rq-table td{ text-align:left; padding:12px 14px; border-bottom:1px solid var(--line); font-size:.92rem; vertical-align:top; }
+  .rq-table th{ font-family:var(--font-display); font-size:.78rem; letter-spacing:.06em; text-transform:uppercase; color:var(--text-soft); }
+  .status-active{ display:inline-flex; align-items:center; gap:6px; font-size:.75rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase; color:#1E9E5B; }
+  .status-active::before{ content:""; width:7px; height:7px; border-radius:50%; background:#1E9E5B; }
+  .status-planned{ display:inline-flex; align-items:center; gap:6px; font-size:.75rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase; color:var(--text-soft); }
+  .status-planned::before{ content:""; width:7px; height:7px; border-radius:50%; background:var(--text-soft); }
+</style>
+</head>
+<body data-page="projects">
+
+<div id="loading-screen"><div class="loader-mark"></div></div>
+<div id="app-header"></div>
+
+<section class="page-hero">
+  <canvas></canvas>
+  <div class="container page-hero-inner">
+    <div class="crumbs"><a href="index.html">Home</a> / <span>Projects</span></div>
+    <span class="eyebrow">Research in motion</span>
+    <h1>Three active projects, three completed — with a longer-term architecture idea queued behind the flagship track.</h1>
+    <p>Every project below is built the way we build models: state the question first, then design the experiment that answers it.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+
+    <!-- ================= FLAGSHIP PROJECT CARD ================= -->
+    <div class="card glow-border" data-reveal style="padding:44px;">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:16px;">
+        <div>
+          <span class="status-active">Active</span>
+          <h2 style="margin-top:14px;font-size:1.7rem;max-width:680px;">Digital Twin–Driven Safe Exploration for Autonomous IoT Network Optimization</h2>
+        </div>
+        <div style="text-align:right;">
+          <span class="tag">Jul – Sep 2026</span>
+        </div>
+      </div>
+      <p style="margin-top:18px;max-width:820px;">Network Digital Twins (NDTs) are becoming the backbone of autonomous network management — the core of any NDT is a network model that turns topology, routing, and traffic state into accurate KPI predictions. This track asks a direct question: <strong>can replacing TwinNet's Message-Passing GNN backbone with GAT, a Graph Transformer, or Graph Mamba improve prediction accuracy, generalization, or inference efficiency?</strong></p>
+
+      <div class="tag-row" style="margin-top:18px;">
+        <span class="tag">Network Digital Twins</span>
+        <span class="tag">Graph Neural Networks</span>
+        <span class="tag">Graph Mamba / SSMs</span>
+        <span class="tag">IoT Scalability</span>
+        <span class="tag">TwinNet</span>
+      </div>
+
+      <button class="btn btn-ghost expand-btn" id="expand-project" aria-expanded="false">
+        See full methodology
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+
+      <div class="details" id="project-details">
+        <div style="margin-top:36px;">
+          <span class="eyebrow">Why it matters</span>
+          <p style="margin-top:14px;">TwinNet (Ferriol-Galmés et al., 2022) is the leading open-source NDT for QoS-aware optimization, generalizing well across unseen topologies with a Message-Passing GNN. Since then, GAT, Graph Transformers, and Graph Mamba have each claimed to fix a limitation of standard message passing — but none had been systematically evaluated on a network digital twin task before this study.</p>
+        </div>
+
+        <div style="margin-top:36px;">
+          <span class="eyebrow">Research questions</span>
+          <table class="rq-table">
+            <thead><tr><th>RQ</th><th>Question</th><th>Why it matters</th></tr></thead>
+            <tbody>
+              <tr><td>RQ1</td><td>Does architecture choice affect prediction accuracy on TwinNet's benchmark scenarios?</td><td>Justifies replacing the original backbone with a better-performing alternative.</td></tr>
+              <tr><td>RQ2</td><td>How well does each architecture generalize to unseen topologies?</td><td>Generalization is TwinNet's core claim — does a new architecture help or hurt it?</td></tr>
+              <tr><td>RQ3</td><td>What are the computational trade-offs across architectures?</td><td>NDTs must run in real time — inference speed is a hard constraint.</td></tr>
+              <tr><td>RQ4</td><td>Does Graph Mamba's linear complexity help on large IoT topologies vs. a Transformer?</td><td>Tests the scalability claim of state-space graph models in networking.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div style="margin-top:36px;">
+          <span class="eyebrow">Experimental pipeline</span>
+          <div class="grid grid-4" style="margin-top:18px;">
+            <div class="card" style="padding:22px;"><b style="font-family:var(--font-display);color:var(--signal);">01</b><h3 style="font-size:.98rem;margin-top:10px;">Dataset</h3><p style="font-size:.88rem;">106 real-world topologies, OMNeT++ ground truth for delay, jitter, loss, and queue stats.</p></div>
+            <div class="card" style="padding:22px;"><b style="font-family:var(--font-display);color:var(--signal);">02</b><h3 style="font-size:.98rem;margin-top:10px;">Preprocessing</h3><p style="font-size:.88rem;">Topology, traffic matrix, and routing configuration converted into PyTorch Geometric graph objects.</p></div>
+            <div class="card" style="padding:22px;"><b style="font-family:var(--font-display);color:var(--signal);">03</b><h3 style="font-size:.98rem;margin-top:10px;">Architecture swap</h3><p style="font-size:.88rem;">Only the model backbone changes across four runs — dataset and optimizer stay fixed.</p></div>
+            <div class="card" style="padding:22px;"><b style="font-family:var(--font-display);color:var(--signal);">04</b><h3 style="font-size:.98rem;margin-top:10px;">Evaluation</h3><p style="font-size:.88rem;">MAPE, unseen-topology generalization, inference latency, training time, and memory.</p></div>
+          </div>
+        </div>
+
+        <div style="margin-top:36px;">
+          <span class="eyebrow">Models under comparison</span>
+          <table class="rq-table">
+            <thead><tr><th>Model</th><th>Family</th><th>Key mechanism</th></tr></thead>
+            <tbody>
+              <tr><td>TwinNet‑GNN</td><td>Message-Passing GNN</td><td>Aggregates neighbor messages — baseline, no attention.</td></tr>
+              <tr><td>TwinNet‑GAT</td><td>Graph Attention</td><td>Learned edge-level attention weights.</td></tr>
+              <tr><td>TwinNet‑GT</td><td>Graph Transformer</td><td>Global self-attention over all nodes.</td></tr>
+              <tr><td>TwinNet‑Mamba <span class="tag" style="margin-left:6px;">★ key candidate</span></td><td>Graph Mamba (SSM)</td><td>Selective state space — linear O(N) complexity.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div style="margin-top:36px;">
+          <span class="eyebrow">IoT-scale extension</span>
+          <p style="margin-top:14px;">Beyond TwinNet's original dataset, the study generates a Mininet-based IoT topology set (10–50 nodes, MQTT/CoAP traffic from CICIoT2023) to test behavior specifically at IoT scale.</p>
+        </div>
+
+        <div style="margin-top:36px;background:var(--mist);border-radius:var(--radius-md);padding:28px;">
+          <span class="badge-soon">Future direction — post-conference</span>
+          <h3 style="margin-top:14px;">Graph Hydra: dynamic expert selection over specialized graph heads</h3>
+          <p style="margin-top:12px;">TwinNet actually carries four different kinds of signal at once — topology, traffic, routing, and queue state — each suited to a different architecture. Graph Hydra's proposal: give each stream its own specialist head (structural GNN, temporal Mamba, path-aware Transformer, local GAT), then use a lightweight controller to decide which heads matter for the current network state, rather than always running all of them. If the comparative study confirms which architecture wins per input type, Graph Hydra becomes the natural Phase 2.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= ROADMAP TIMELINE ================= -->
+    <div style="margin-top:70px;">
+      <div class="section-head">
+        <span class="eyebrow">Roadmap</span>
+        <h2>From comparative study to standalone architecture.</h2>
+      </div>
+      <div class="timeline">
+        <div class="t-step" data-reveal>
+          <span class="when">Phase 1 · Current proposal</span>
+          <h4>Complete the comparative study</h4>
+          <p style="color:var(--text-soft);">Identify which architecture wins per input type across accuracy, generalization, and efficiency — directly informing which heads belong in Graph Hydra.</p>
+        </div>
+        <div class="t-step" data-reveal style="transition-delay:.08s;">
+          <span class="when">Phase 2 · Month 4–8</span>
+          <h4>Design Graph Hydra as a standalone architecture</h4>
+          <p style="color:var(--text-soft);">Validate on TwinNet as the first benchmark; submit as a journal paper.</p>
+        </div>
+        <div class="t-step" data-reveal style="transition-delay:.16s;">
+          <span class="when">Phase 3 · Month 8–12</span>
+          <h4>Integrate into the full Safe Exploration Framework</h4>
+          <p style="color:var(--text-soft);">Graph Hydra becomes the fidelity engine, replacing the baseline GNN.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= OTHER ACTIVE PROJECTS ================= -->
+    <div style="margin-top:70px;">
+      <div class="section-head">
+        <span class="eyebrow">Also active</span>
+        <h2>Two more projects running in parallel.</h2>
+      </div>
+      <div class="grid grid-2">
+        <div class="card tilt icon-rotate" data-reveal>
+          <span class="status-active">Active · Started April 2026</span>
+          <h3 style="margin-top:14px;font-size:1.15rem;">Towards Smart Cities: Federated Learning Framework for Autonomous Vehicle Motion Planning</h3>
+          <p style="margin-top:10px;">An AI-driven framework for autonomous vehicle motion planning and connectivity — combining intelligent global path planning, real-time network simulation, and federated learning for safer, more efficient, privacy-preserving intelligent transportation systems.</p>
+          <div class="tag-row">
+            <span class="tag">Federated Learning</span>
+            <span class="tag">Autonomous Vehicles</span>
+            <span class="tag">Smart Cities</span>
+          </div>
+          <p style="margin-top:16px;font-size:.85rem;color:var(--text-soft);"><strong>Team:</strong> Dr. Bassem Mokhtar (PI) · Dr. Asmaa Ibrahim · Eng. Abdelrhman Walid · Eng. Yahia Ibrahim · Eng. Aya Ahmed</p>
+        </div>
+        <div class="card tilt icon-rotate" data-reveal style="transition-delay:.08s;">
+          <span class="status-active">Active · Started April 2026</span>
+          <h3 style="margin-top:14px;font-size:1.15rem;">Lightweight Multimodal ML-Driven Predictive Maintenance for Sustainable Manufacturing Quality in the UAE</h3>
+          <p style="margin-top:10px;">An AI-powered edge computing solution for predictive maintenance that detects abnormal machine sounds in real time using lightweight deep learning models — enabling reliable, low-cost, cloud-independent monitoring of industrial equipment.</p>
+          <div class="tag-row">
+            <span class="tag">Edge Computing</span>
+            <span class="tag">Predictive Maintenance</span>
+            <span class="tag">Acoustic ML</span>
+          </div>
+          <p style="margin-top:16px;font-size:.85rem;color:var(--text-soft);"><strong>Team:</strong> Dr. Bassem Mokhtar (PI)</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= COMPLETED PROJECTS ================= -->
+    <div style="margin-top:70px;">
+      <div class="section-head">
+        <span class="eyebrow">Completed</span>
+        <h2>Wrapped up, but part of how we got here.</h2>
+      </div>
+      <div class="grid grid-3">
+        <div class="card tilt" data-reveal>
+          <span class="status-planned" style="color:var(--text-soft);">Completed</span>
+          <h3 style="margin-top:14px;font-size:1.05rem;">Freshtic: Revolutionizing Food Management with AI</h3>
+          <p style="margin-top:10px;">An AI- and IoT-powered smart solution helping households reduce food waste by monitoring freshness, providing real-time alerts, and enabling smarter food management.</p>
+        </div>
+        <div class="card tilt" data-reveal style="transition-delay:.08s;">
+          <span class="status-planned" style="color:var(--text-soft);">Completed</span>
+          <h3 style="margin-top:14px;font-size:1.05rem;">Smart Management of Residential Renewable Energy Systems</h3>
+          <p style="margin-top:10px;">An ML-driven, IoT edge-enabled management system for efficient operation of residential solar energy systems.</p>
+        </div>
+        <div class="card tilt" data-reveal style="transition-delay:.16s;">
+          <span class="status-planned" style="color:var(--text-soft);">Completed</span>
+          <h3 style="margin-top:14px;font-size:1.05rem;">Vehicular Edge of Things Computing for Sustainable Internet and Traffic Services at Smart Cities</h3>
+          <p style="margin-top:10px;">Designed and evaluated a Vehicular Edge-of-Things Computing (VEoTC) framework for smart cities, demonstrating feasibility through simulation and performance analysis for more efficient transportation and safer, more sustainable urban mobility.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= UPCOMING PROJECTS PLACEHOLDER ================= -->
+    <div style="margin-top:70px;">
+      <div class="section-head">
+        <span class="eyebrow">Upcoming</span>
+        <h2>More projects are on the way.</h2>
+      </div>
+      <div class="empty-state">
+        <div class="card-icon" style="margin:0 auto 16px;">◇</div>
+        <p style="font-family:var(--font-display);color:var(--text);font-weight:600;margin-bottom:8px;">Additional projects will be listed here as they're confirmed</p>
+        <p>Have a project to contribute or a collaboration in mind? <a href="contact.html" style="color:var(--signal);font-weight:600;">Get in touch</a>.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div id="app-footer"></div>
+
+<script src="js/components/layout.js"></script>
+<script src="js/animations.js"></script>
+<script src="js/main.js"></script>
+<script>
+document.addEventListener('layout:ready', function(){
+  const btn = document.getElementById('expand-project');
+  const details = document.getElementById('project-details');
+  btn.addEventListener('click', ()=>{
+    const open = details.classList.toggle('open');
+    btn.classList.toggle('open', open);
+    btn.setAttribute('aria-expanded', open);
+    btn.childNodes[0].textContent = open ? 'Hide full methodology ' : 'See full methodology ';
+  });
+});
+</script>
+</body>
+</html>

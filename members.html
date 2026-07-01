@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Team — INet Lab</title>
+<meta name="description" content="Meet the faculty, researchers, and collaborators of the Intelligent Computer Networks Research Group.">
+<link rel="icon" href="assets/images/inet-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/animations.css">
+<link rel="stylesheet" href="css/responsive.css">
+<style>
+  .member-card{ display:flex; flex-direction:column; }
+  .member-photo{ width:100%; aspect-ratio:4/3; border-radius:14px; overflow:hidden; margin-bottom:20px; background:linear-gradient(135deg,var(--navy),var(--ink)); display:flex; align-items:center; justify-content:center; }
+  .member-photo img{ width:100%; height:100%; object-fit:cover; }
+  .member-initials{ color:#fff; font-family:var(--font-display); font-size:2.4rem; }
+  .member-card.director{ border:1.5px solid var(--signal); position:relative; }
+  .director-badge{ position:absolute; top:20px; right:20px; z-index:2; }
+  .filter-bar{ display:flex; gap:10px; flex-wrap:wrap; margin-bottom:44px; }
+  .filter-btn{ padding:9px 18px; border-radius:999px; border:1px solid var(--line); background:var(--white); font-family:var(--font-display); font-size:.82rem; font-weight:600; color:var(--text-soft); transition:all .25s ease; }
+  .filter-btn.active, .filter-btn:hover{ background:var(--signal); color:#fff; border-color:var(--signal); }
+  .member-role{ font-size:.85rem; color:var(--signal); font-weight:600; margin-top:2px; }
+  .member-meta{ display:flex; flex-direction:column; gap:2px; margin-top:14px; font-size:.85rem; color:var(--text-soft); }
+  .member-meta a:hover{ color:var(--signal); }
+  .bio-clamp{ display:-webkit-box; -webkit-line-clamp:4; -webkit-box-orient:vertical; overflow:hidden; }
+  .bio-clamp.expanded{ -webkit-line-clamp:unset; overflow:visible; }
+</style>
+</head>
+<body data-page="members">
+
+<div id="loading-screen"><div class="loader-mark"></div></div>
+<div id="app-header"></div>
+
+<section class="page-hero">
+  <canvas></canvas>
+  <div class="container page-hero-inner">
+    <div class="crumbs"><a href="index.html">Home</a> / <span>Team</span></div>
+    <span class="eyebrow">The people behind the research</span>
+    <h1>Faculty, researchers, and collaborators working across IoT and AI-driven networking.</h1>
+    <p>The structure below reflects roles, responsibilities, and academic progression — aligned with practices from leading research groups.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+
+    <div class="filter-bar" role="tablist" aria-label="Filter team by group">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="leadership">Leadership</button>
+      <button class="filter-btn" data-filter="postdoc">Postdoctoral Researchers</button>
+      <button class="filter-btn" data-filter="assistants">Research Assistants</button>
+      <button class="filter-btn" data-filter="collab">Collaborators</button>
+    </div>
+
+    <!-- Leadership -->
+    <div class="member-row" data-group="leadership">
+      <span class="eyebrow">Founder &amp; Head of Lab</span>
+      <div class="grid grid-2" style="margin-top:24px;margin-bottom:60px;">
+        <div class="card member-card tilt director" data-reveal>
+          <span class="badge-soon director-badge">Founder &amp; Head</span>
+          <div class="member-photo"><img src="assets/images/bassem-mokhtar.jpg" alt="Dr. Bassem Mokhtar"></div>
+          <h3>Dr. Bassem Mokhtar</h3>
+          <div class="member-role">Assistant Professor of Computer Engineering</div>
+          <p class="bio-clamp" style="margin-top:12px;">Bassem Mokhtar has been an Assistant Professor of Computer Engineering at the College of Information Technology, United Arab Emirates University, Al Ain, UAE, since January 2023. He received his Ph.D. in Computer Engineering from Virginia Tech, USA, in 2014, and his B.Sc. and M.Sc. in Electrical Engineering from Alexandria University, Egypt, in 2004 and 2008. He is a senior member of IEEE. His research interests include embedding intelligence in networking operations, autonomic resilient networking, network semantics reasoning, and machine learning applications in computer networks. He has served as PI, Co-PI, and researcher on funded multidisciplinary projects spanning the Internet of Things, Internet of Vehicles, Software Defined Networking, sensor networks, nanotechnology, and flexible electronics, and reviews for venues including the IEEE Internet of Things Journal, IEEE Vehicular Technology Magazine, and the Elsevier Journal of Network and Computer Applications.</p>
+          <button class="btn btn-ghost btn-sm bio-toggle">Read full bio</button>
+          <div class="member-meta" style="margin-top:14px;">
+            <a href="mailto:bassem.mokhtar@uaeu.ac.ae">bassem.mokhtar@uaeu.ac.ae</a>
+            <span>Personal affiliation: College of Information Technology, UAE University</span>
+            <span>INet Lab is hosted at Alexandria University, Egypt</span>
+          </div>
+        </div>
+
+        <div class="card member-card tilt" data-reveal style="transition-delay:.08s;">
+          <span class="tag" style="width:fit-content;">Lab Coordinator</span>
+          <div class="member-photo" style="margin-top:14px;"><img src="assets/images/basmala-taha.jpg" alt="Eng. Basmala Taha"></div>
+          <h3>Eng. Basmala Taha</h3>
+          <div class="member-role">Research Assistant &amp; Lab Coordinator</div>
+          <p style="margin-top:12px;">B.Sc. in Computer Science, Egypt-Japan University of Science and Technology (E-JUST), 2022–2026. Author of 3 peer-reviewed publications across IIoT anomaly detection, sequence alignment, and ensemble learning. Joined INet Lab in July 2026 to lead the <em>Digital Twin–Driven Safe Exploration</em> research track, and is currently applying to Master's/Ph.D. programs.</p>
+          <div class="member-meta">
+            <a href="mailto:basmala.taha@ejust.edu.eg">basmala.taha@ejust.edu.eg</a>
+            <a href="projects.html">View research track ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Postdoctoral Researchers -->
+    <div class="member-row" data-group="postdoc">
+      <span class="eyebrow">Postdoctoral researchers</span>
+      <div class="grid grid-3" style="margin-top:24px;margin-bottom:60px;">
+        <div class="card member-card tilt" data-reveal>
+          <div class="member-photo"><span class="member-initials">AI</span></div>
+          <h3>Dr. Asmaa Ibrahim</h3>
+          <div class="member-role">Postdoctoral Researcher</div>
+          <p style="margin-top:12px;">College of Information Technology, UAE University.</p>
+          <div class="member-meta">
+            <a href="mailto:asmaa.ibrahim@uaeu.ac.ae">asmaa.ibrahim@uaeu.ac.ae</a>
+          </div>
+        </div>
+        <div class="card member-card tilt" data-reveal style="transition-delay:.08s;">
+          <div class="member-photo"><span class="member-initials">GA</span></div>
+          <h3>Dr. Ghada Afifi</h3>
+          <div class="member-role">Postdoctoral Researcher</div>
+          <p style="margin-top:12px;">College of Information Technology, UAE University.</p>
+          <div class="member-meta">
+            <a href="mailto:ghadasameh@uaeu.ac.ae">ghadasameh@uaeu.ac.ae</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Research Assistants -->
+    <div class="member-row" data-group="assistants">
+      <span class="eyebrow">Research assistants</span>
+      <div class="grid grid-3" style="margin-top:24px;margin-bottom:60px;">
+        <div class="card member-card tilt" data-reveal>
+          <div class="member-photo"><span class="member-initials">AW</span></div>
+          <h3>Eng. Abdelrhman Walid</h3>
+          <div class="member-role">Research Assistant</div>
+          <p style="margin-top:12px;">Faculty of Engineering, Helwan University, Egypt.</p>
+        </div>
+        <div class="card member-card tilt" data-reveal style="transition-delay:.08s;">
+          <div class="member-photo"><span class="member-initials">YI</span></div>
+          <h3>Eng. Yahia Ibrahim</h3>
+          <div class="member-role">Research Assistant</div>
+          <p style="margin-top:12px;">Faculty of Engineering, Alexandria University, Egypt.</p>
+        </div>
+        <div class="card member-card tilt" data-reveal style="transition-delay:.16s;">
+          <div class="member-photo"><img src="assets/images/aya-ahmed.jpg" alt="Eng. Aya Ahmed"></div>
+          <h3>Eng. Aya Ahmed</h3>
+          <div class="member-role">Research Assistant</div>
+          <p style="margin-top:12px;">American University in Cairo, Egypt. Supports research design, methodology development, technical writing, and system architecture formulation.</p>
+          <div class="member-meta">
+            <a href="mailto:ya72@aucegypt.edu">ya72@aucegypt.edu</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Collaborators -->
+    <div class="member-row" data-group="collab">
+      <span class="eyebrow">Collaborators</span>
+      <div class="grid grid-3" style="margin-top:24px;">
+        <div class="card member-card tilt" data-reveal>
+          <div class="member-photo"><img src="assets/images/rami-zewail.jpg" alt="Dr. Rami Zewail" onerror="this.parentElement.innerHTML='<span class=&quot;member-initials&quot;>RZ</span>'"></div>
+          <h3>Dr. Rami Zewail</h3>
+          <div class="member-role">Collaborator</div>
+          <p style="margin-top:12px;">Faculty of Engineering, Egypt-Japan University of Science and Technology (E-JUST), Egypt.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div id="app-footer"></div>
+
+<script src="js/components/layout.js"></script>
+<script src="js/animations.js"></script>
+<script src="js/main.js"></script>
+<script>
+document.addEventListener('layout:ready', function(){
+  const btns = document.querySelectorAll('.filter-btn');
+  const rows = document.querySelectorAll('.member-row');
+  btns.forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      btns.forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      const f = btn.getAttribute('data-filter');
+      rows.forEach(r=>{
+        r.style.display = (f==='all' || r.getAttribute('data-group')===f) ? '' : 'none';
+      });
+    });
+  });
+
+  const bioBtn = document.querySelector('.bio-toggle');
+  if(bioBtn){
+    bioBtn.addEventListener('click', ()=>{
+      const bio = bioBtn.previousElementSibling;
+      const open = bio.classList.toggle('expanded');
+      bioBtn.textContent = open ? 'Show less' : 'Read full bio';
+    });
+  }
+});
+</script>
+</body>
+</html>

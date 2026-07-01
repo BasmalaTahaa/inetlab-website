@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Publications — INet Lab</title>
+<meta name="description" content="Journal and conference publications from the Intelligent Computer Networks Research Group.">
+<link rel="icon" href="assets/images/inet-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/animations.css">
+<link rel="stylesheet" href="css/responsive.css">
+<style>
+  .pub-toolbar{ display:flex; gap:14px; flex-wrap:wrap; align-items:center; margin-bottom:36px; }
+  .search-box{ flex:1; min-width:240px; position:relative; }
+  .search-box input{
+    width:100%; padding:14px 18px 14px 44px; border-radius:999px; border:1px solid var(--line);
+    font-family:var(--font-body); font-size:.95rem; background:var(--white); color:var(--text);
+  }
+  .search-box input:focus{ outline:2px solid var(--signal); outline-offset:2px; }
+  .search-box svg{ position:absolute; left:16px; top:50%; transform:translateY(-50%); width:16px; height:16px; color:var(--text-soft); }
+  .pub-select{ padding:12px 16px; border-radius:999px; border:1px solid var(--line); background:var(--white); color:var(--text); font-family:var(--font-body); font-size:.9rem; }
+  .pub-card{ display:flex; justify-content:space-between; gap:20px; padding:26px 30px; }
+  .pub-card + .pub-card{ margin-top:16px; }
+  .pub-meta{ display:flex; gap:10px; flex-wrap:wrap; margin-top:10px; }
+  .pub-actions{ display:flex; gap:10px; flex-shrink:0; align-self:flex-start; flex-wrap:wrap; }
+</style>
+</head>
+<body data-page="publications">
+
+<div id="loading-screen"><div class="loader-mark"></div></div>
+<div id="app-header"></div>
+
+<section class="page-hero">
+  <canvas></canvas>
+  <div class="container page-hero-inner">
+    <div class="crumbs"><a href="index.html">Home</a> / <span>Publications</span></div>
+    <span class="eyebrow">Publications</span>
+    <h1>10 papers so far — journal and conference, searchable by title, type, or year.</h1>
+    <p>The group's publication record spans vehicular edge computing, resource allocation, acoustic anomaly detection, and UAV computing — with the TwinNet architecture comparison currently underway targeting IEEE NOMS 2027, NetSoft 2027, and ICC 2027 workshops.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+
+    <div class="pub-toolbar">
+      <div class="search-box">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        <input type="text" id="pub-search" placeholder="Search publications by title, author, or venue…" aria-label="Search publications">
+      </div>
+      <select class="pub-select" id="filter-type" aria-label="Filter by type">
+        <option value="all">All types</option>
+        <option value="journal">Journal</option>
+        <option value="conference">Conference</option>
+      </select>
+      <select class="pub-select" id="filter-year" aria-label="Filter by year">
+        <option value="all">All years</option>
+      </select>
+    </div>
+
+    <div id="pub-results"></div>
+
+  </div>
+</section>
+
+<div id="app-footer"></div>
+
+<script src="js/components/layout.js"></script>
+<script src="js/animations.js"></script>
+<script src="js/main.js"></script>
+<script>
+// Publication data — sourced from the group's official publications list.
+// Shape: { title, authors, venue, year, type: 'journal'|'conference', doi }
+const PUBLICATIONS = [
+  {
+    title: "MS-BiViL: A Tiny Multi-Scale Vision-LSTM Variant for Matured Vision at the IoV Edge",
+    authors: "A. Walid, B. Mokhtar",
+    venue: "IEEE Int'l Conference on Smart Mobility, Alamein International University, Egypt",
+    year: 2026,
+    type: "conference",
+    doi: ""
+  },
+  {
+    title: "Performance Modeling and Orchestration Analysis of Multi-Tier Edge Computing in V2X Environments",
+    authors: "A. Khalifa, B. Mokhtar",
+    venue: "IEEE Int'l Conference on Smart Mobility, Alamein International University, Egypt",
+    year: 2026,
+    type: "conference",
+    doi: ""
+  },
+  {
+    title: "Distributed Resource Allocation and Task Offloading for Vehicular Edge of Things Computing",
+    authors: "G. Afifi, B. Mokhtar",
+    venue: "International Wireless Communications and Mobile Computing (IWCMC), Abu Dhabi, UAE",
+    year: 2025,
+    type: "conference",
+    doi: "https://doi.org/10.1109/IWCMC65282.2025.11059552"
+  },
+  {
+    title: "Resource‑Aware Contrastive Scattering Meta‑Learning for Efficient Few‑Shot Acoustic Anomaly Detection",
+    authors: "R. Zewail, B. Mokhtar",
+    venue: "Advanced Intelligent Systems",
+    year: 2026,
+    type: "journal",
+    doi: "https://doi.org/10.1002/aisy.202501454"
+  },
+  {
+    title: "Hybrid Intelligence for Predictive Analytics of Residential Energy Consumption",
+    authors: "A. Ibrahim, A. AlJawardi, S. Alblooshi, A. Elamin, A. Ali, A. Alnuaimi, B. Mokhtar",
+    venue: "International Journal of Sustainable Energy, vol. 45, no. 1",
+    year: 2026,
+    type: "journal",
+    doi: "https://doi.org/10.1080/14786451.2026.2653329"
+  },
+  {
+    title: "Distributed RL-Based Resource Allocation and Task Offloading for Vehicular Edge of Things Computing",
+    authors: "G. Afifi, B. Mokhtar",
+    venue: "IEEE Open Journal of Vehicular Technology, vol. 6, pp. 1796–1814",
+    year: 2025,
+    type: "journal",
+    doi: "https://doi.org/10.1109/OJVT.2025.3582035"
+  },
+  {
+    title: "Vehicular-Computational Resource Geofencing: Efficient Spatiotemporal Uncertainty Estimation",
+    authors: "G. Afifi, B. Mokhtar",
+    venue: "IEEE Access, vol. 13, pp. 43653–43665",
+    year: 2025,
+    type: "journal",
+    doi: "https://doi.org/10.1109/ACCESS.2025.3547358"
+  },
+  {
+    title: "Clustering-Driven Optimization of RRH-BBU Assignment for Green Communication Networks With Big Data Analytics",
+    authors: "A. Ibrahim, A. Elsheikh, B. Mokhtar, J. Prat",
+    venue: "IEEE Access, vol. 12, pp. 177080–177092",
+    year: 2024,
+    type: "journal",
+    doi: "https://doi.org/10.1109/ACCESS.2024.3506434"
+  },
+  {
+    title: "What If VEC Is Moving: Probabilistic Model of Task Execution Through Offloading in Vehicular Computing Environments",
+    authors: "A. Ibrahim, B. Mokhtar",
+    venue: "IEEE Access, vol. 12, pp. 170889–170897",
+    year: 2024,
+    type: "journal",
+    doi: "https://doi.org/10.1109/ACCESS.2024.3476679"
+  },
+  {
+    title: "AI-Enabled Collaborative Distributed Computing in Networked UAVs",
+    authors: "B. Mokhtar",
+    venue: "IEEE Access, vol. 12, pp. 96515–96526",
+    year: 2024,
+    type: "journal",
+    doi: "https://doi.org/10.1109/ACCESS.2024.3425523"
+  }
+];
+
+document.addEventListener('layout:ready', function(){
+  const resultsEl = document.getElementById('pub-results');
+  const searchEl = document.getElementById('pub-search');
+  const typeEl = document.getElementById('filter-type');
+  const yearEl = document.getElementById('filter-year');
+
+  const years = [...new Set(PUBLICATIONS.map(p=>p.year))].sort((a,b)=>b-a);
+  years.forEach(y=>{
+    const opt = document.createElement('option');
+    opt.value = y; opt.textContent = y;
+    yearEl.appendChild(opt);
+  });
+
+  function render(){
+    const q = searchEl.value.trim().toLowerCase();
+    const type = typeEl.value;
+    const year = yearEl.value;
+    const filtered = PUBLICATIONS.filter(p=>{
+      const matchesQ = !q || (p.title+' '+p.authors+' '+p.venue).toLowerCase().includes(q);
+      const matchesType = type==='all' || p.type===type;
+      const matchesYear = year==='all' || String(p.year)===String(year);
+      return matchesQ && matchesType && matchesYear;
+    });
+
+    if(filtered.length===0){
+      resultsEl.innerHTML = `
+        <div class="empty-state">
+          <div class="card-icon" style="margin:0 auto 18px;">◇</div>
+          <p style="font-family:var(--font-display);color:var(--text);font-weight:600;margin-bottom:8px;">
+            ${PUBLICATIONS.length===0 ? 'No publications yet — check back soon' : 'No publications match your filters'}
+          </p>
+          <p>${PUBLICATIONS.length===0
+            ? 'Journal and conference papers will appear here as the group publishes its work, starting with the TwinNet architecture comparison currently underway.'
+            : 'Try a different search term or clear the filters.'}</p>
+        </div>`;
+      return;
+    }
+
+    resultsEl.innerHTML = filtered.map(p => `
+      <div class="card pub-card" data-reveal>
+        <div>
+          <span class="tag">${p.type === 'journal' ? 'Journal' : 'Conference'}</span>
+          <h3 style="margin-top:12px;font-size:1.1rem;">${p.title}</h3>
+          <p style="margin-top:6px;color:var(--text-soft);">${p.authors}</p>
+          <div class="pub-meta">
+            <span class="tag">${p.venue}</span>
+            <span class="tag">${p.year}</span>
+          </div>
+        </div>
+        <div class="pub-actions">
+          ${p.doi ? `<a class="btn btn-ghost btn-sm" href="${p.doi}" target="_blank" rel="noopener">DOI</a>` : ''}
+          <button class="btn btn-ghost btn-sm cite-btn">Cite</button>
+          <button class="btn btn-ghost btn-sm bibtex-btn">BibTeX</button>
+        </div>
+      </div>
+    `).join('');
+    initScrollReveal();
+
+    resultsEl.querySelectorAll('.pub-card').forEach((card, i) => {
+      const p = filtered[i];
+      const citeBtn = card.querySelector('.cite-btn');
+      const bibBtn = card.querySelector('.bibtex-btn');
+      citeBtn.addEventListener('click', () => {
+        const text = `${p.authors}, "${p.title}," ${p.venue}, ${p.year}.`;
+        navigator.clipboard?.writeText(text);
+        const old = citeBtn.textContent;
+        citeBtn.textContent = 'Copied ✓';
+        setTimeout(() => citeBtn.textContent = old, 1600);
+      });
+      bibBtn.addEventListener('click', () => {
+        const key = (p.authors.split(',')[0].split(' ').pop() || 'ref') + p.year;
+        const entryType = p.type === 'journal' ? 'article' : 'inproceedings';
+        const bibtex = `@${entryType}{${key},\n  title={${p.title}},\n  author={${p.authors}},\n  ${p.type === 'journal' ? 'journal' : 'booktitle'}={${p.venue}},\n  year={${p.year}}${p.doi ? ',\n  doi={' + p.doi.replace('https://doi.org/','') + '}' : ''}\n}`;
+        navigator.clipboard?.writeText(bibtex);
+        const old = bibBtn.textContent;
+        bibBtn.textContent = 'Copied ✓';
+        setTimeout(() => bibBtn.textContent = old, 1600);
+      });
+    });
+  }
+
+  searchEl.addEventListener('input', render);
+  typeEl.addEventListener('change', render);
+  yearEl.addEventListener('change', render);
+  render();
+});
+</script>
+</body>
+</html>
